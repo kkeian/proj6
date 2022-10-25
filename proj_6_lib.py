@@ -29,8 +29,9 @@ def getMatrixSize(input):
 def getMatrix(input):
   if input[0][0] == '':
     input.pop(0)
-  elif input[0][0] == '0':
-    return None, None
+    if input[0][0] == '0':
+      input.pop(0)
+      return None
 
   height, width = getMatrixSize(input)
   print(height)
