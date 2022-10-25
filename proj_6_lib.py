@@ -74,8 +74,9 @@ def getLargestSquare(matrix):
         top, bot, left, right = getAdjacentSquares(index, matrixSize)
 
   # Objective function
+  # Side len of largest square in function
 
-  # Recursive case
+  # Recursive case (recurrence relation is?)
   pass
 
 
