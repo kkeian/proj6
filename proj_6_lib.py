@@ -34,8 +34,6 @@ def getMatrix(input):
       return None
 
   height, width = getMatrixSize(input)
-  print(height)
-  print(width)
   input.pop(0)
   matrix = []
   for h in range(height):
@@ -45,7 +43,39 @@ def getMatrix(input):
   return matrix
 
 
+def getAdjacentSquares(index, matrixSize):
+  column, row = index
+  columnSize, rowSize = matrixSize
+
+  top, bot = (column-1, row), (column+1, row)
+  left, right = (column, row-1), (column, row+1)
+
+  # Check if computed adjacent squares
+  # are in valid ranges
+  if row == 0:
+    top = None
+  elif row == columnSize -1:
+    bot = None
+
+  if left[1] < 0:
+    left = None
+  elif right[1] == rowSize:
+    right = None
+
+  return top, bot, left, right
+
+
 def getLargestSquare(matrix):
+  matrixSize = (len(matrix)-1, len(matrix[0]-1))
+  for i in range(len(matrix)):
+    for j in range(len(matrix[i])):
+      if matrix[i][j] == '1':
+        index = j, i
+        top, bot, left, right = getAdjacentSquares(index, matrixSize)
+
+  # Objective function
+
+  # Recursive case
   pass
 
 
