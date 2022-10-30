@@ -6,7 +6,7 @@
 # *Your PSU user ID:  knk5281
 # *Course title CMPSC 465
 # *Due Time: 11:59PM, Sunday, October 30, 2022
-# *Time of Last Modification: 7:27AM, Tuesday, October 25, 2022
+# *Time of Last Modification: 16:48AM, Sunday, October 30, 2022
 # *Description: Utility functions for finding the largest square of all 1's in a given input matrix.
 # */
 def getLines(file):
@@ -43,43 +43,7 @@ def getMatrix(input):
   return matrix
 
 
-def getAdjacentSquares(index, matrixSize):
-  column, row = index
-  columnSize, rowSize = matrixSize
-
-  top, bot = (column-1, row), (column+1, row)
-  left, right = (column, row-1), (column, row+1)
-
-  # Check if computed adjacent squares
-  # are in valid ranges
-  if row == 0:
-    top = None
-  elif row == columnSize -1:
-    bot = None
-
-  if left[1] < 0:
-    left = None
-  elif right[1] == rowSize:
-    right = None
-
-  return top, bot, left, right
-
-
-def getLargestSquare(matrix):
-  matrixSize = (len(matrix)-1, len(matrix[0]-1))
-  for i in range(len(matrix)):
-    for j in range(len(matrix[i])):
-      if matrix[i][j] == '1':
-        index = j, i
-        top, bot, left, right = getAdjacentSquares(index, matrixSize)
-
-  # Objective function
-  # Side len of largest square in function
-
-  # Recursive case (recurrence relation is?)
-  pass
-
-
 def printOutput(out):
   for o in out:
-    print(0)
+    print(o)
+
